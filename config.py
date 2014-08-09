@@ -14,6 +14,7 @@ class Config:
     FLASKY_MAIL_SENDER = 'Thismoment Sales Buzzer] <asielen@gmail.com.com>'
     FLASKY_ADMIN = 'asielen@gmail.com' or os.environ.get('FLASKY_ADMIN')
     FLASKY_SLOW_DB_QUERY_TIME=0.5
+    SSL_DISABLE = True
 
     @staticmethod
     def init_app(app):
@@ -38,10 +39,26 @@ class ProductionConfig(Config):
         'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 
 
+class HerokuConfig(ProductionConfig):
+    @classmethod
+    def init_app(cls, app):
+        ProductionConfig.init_app(app)
+        # log to stderr
+        import logging
+        from logging import StreamHandler
+        file_handler = StreamHandler()
+        file_handler.setLevel(logging.WARNING)
+        app.logger.addHandler(file_handler)
+        #handle proxy server headers
+        from werkzeug.contrib.fixers import ProxyFix
+        app.wsgl_app = ProxyFix(app.wsgl_app)
+    SSL_DISABLE = bool(os.environ.get('SSL_DISABLE'))
+
 config = {
     'development': DevelopmentConfig,
     'testing': TestingConfig,
     'production': ProductionConfig,
+    'heroku': HerokuConfig,
 
     'default': DevelopmentConfig
 }
