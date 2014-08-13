@@ -85,10 +85,14 @@ def edit_profile_admin(id):
 
 @main.route('/qualify/<username>', methods=['POST'])
 @login_required
-def change_email(username):
+def new_sql(username):
+    print(username)
     if current_user.username == username:
         flash('You qualified someone')
+        print("You qualified someone'")
     else:
         flash('You are not logged in properly, please logout and try again')
-    return
+        print("You are not logged in properly, please logout and try again")
+    print("check")
+    return "Yay, you qualified someone!"
 

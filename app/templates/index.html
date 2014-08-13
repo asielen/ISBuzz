@@ -9,8 +9,9 @@
             </div>
         </div>
         <div class="sql-action">
-            <p id="sql_title">Qualify someone!</p>
-            <button type="button" class="sql_button">Click here to qualify</button>
+            <p id="sql-title">Qualify someone!</p>
+            <button type="button" id="sql-button">Click here to qualify</button>
+            <a href="{{url_for('main.new_sql', username=current_user.username)}}" style="display:none" id="sql-button-link"></a>
         </div>
     </div>
 
@@ -21,10 +22,12 @@
 <script>
     $(document).ready(function(){
         function newSQL(){
-            console.log("NEW SQL!")
-            $("#sql_button").val("Yay!");
+            console.log("NEW SQL!");
+            var response = $.post($("#sql-button-link").attr('href'),{test: "check_test"});
+            console.log(response["responseText"]);
+            $("#sql-title").text(response.responseText);
         }
-        $(document).on("click", "#sql_button", newSQL);
+        $(document).on("click", "#sql-button", newSQL);
     });
 </script>
 {% endblock %}
