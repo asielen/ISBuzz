@@ -1,0 +1,134 @@
+a {
+	color: #4C9CF1;
+	text-decoration: none;
+	font-weight: bold;}
+
+a:hover {
+	color: #444;}
+
+img {
+	width: 100%;}
+
+/*<Header>
+_______________________________________________ */
+header {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    color: white;
+    z-index: 100;}
+
+#logo{
+	margin: 10px;
+	float: left;
+	width: 200px;
+	height: 40px;
+	background-color: grey;
+	display: block;
+    border-radius: 99px 10px 99px 10px;}
+
+/* <Nav>
+_______________________________________________ */
+/*Navigation button*/
+#nav-trigger {
+    display: block;
+    position: relative;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 10%;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    float: right;}
+    /*3 bar icon*/
+    #nav-trigger .icon-bar {
+        display: block;
+        width: 22px;
+        height: 4px;
+        border-radius: 1px;
+        margin-top: 2px;
+        background-color: #fff;
+        color: #000;}
+
+/*Navigation menu*/
+nav#nav-mobile {
+    float: right;
+    width: 150px;
+    position: relative;
+    display: block;
+    clear: both}
+    nav#nav-mobile ul {
+        display: none;
+        list-style-type: none;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        background-color: black; }
+    nav#nav-mobile li {
+        display: block;
+        padding: 5px 0;
+        margin: 0 5px;
+        border-bottom: solid 1px black; }
+    nav#nav-mobile li:last-child {
+        border-bottom: none; }
+    nav#nav-mobile a {
+        display: block;
+        color: white;
+        padding: 10px 30px; }
+    nav#nav-mobile a:hover {
+        background-color: grey;
+        color: #fff; }
+
+@media (max-width: 600px) {
+    nav#nav-mobile  {
+        width: 100%;
+        margin: auto;}
+}
+/* </Nav>  */
+/* </Header> */
+
+/*<class=body>*/
+.body-container {
+    padding-top: 60px;
+    width: 800px;
+    margin: auto;
+    display: block;}
+
+.body {
+    height: 100%;}
+
+.db-data {
+    height: 320px;
+    width: 98%;
+    margin: auto;
+    background-color: #AAAAAA;}
+
+.sql-action {
+    height: 200px;
+    width: 98%;
+    margin: auto;
+    margin-top: 5px;
+    background-color: #DDDDDD;}
+
+button#sql-button {
+    margin: auto;
+    margin-top: 10px;
+    display: block;
+    width: 80%;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+    background-color: #004455;
+    color: #FFFFFF;
+    border-radius: 5px;}
+
+#sql-button:hover {
+    background-color: #005566;}
+
+@media (max-width: 800px) {
+  .body-container{
+    width: 100%;}
+}
+/*</class=body>*/
