@@ -83,4 +83,12 @@ def edit_profile_admin(id):
     form.region.data = user.region
     return render_template('edit_profile.html', form=form, user=user)
 
+@main.route('/qualify/<username>', methods=['POST'])
+@login_required
+def change_email(username):
+    if current_user.username == username:
+        flash('You qualified someone')
+    else:
+        flash('You are not logged in properly, please logout and try again')
+    return
 

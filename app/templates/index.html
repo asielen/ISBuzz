@@ -1,13 +1,30 @@
 {% extends "base.html" %}
 
-{% block title %}Flasky - Basic{% endblock %}
-
 {% block page_content %}
-<div class="page-header">
-    <h1>Hello, {% if current_user.is_authenticated() %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h1>
-</div>
+
+    <div class="body bit-1">
+        <div class="db-data">
+            <div class="page-header">
+                <h1>Hello, {% if current_user.is_authenticated() %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h1>
+            </div>
+        </div>
+        <div class="sql-action">
+            <p id="sql_title">Qualify someone!</p>
+            <button type="button" class="sql_button">Click here to qualify</button>
+        </div>
+    </div>
+
 {% endblock %}
 
 {% block scripts %}
 {{ super() }}
+<script>
+    $(document).ready(function(){
+        function newSQL(){
+            console.log("NEW SQL!")
+            $("#sql_button").val("Yay!");
+        }
+        $(document).on("click", "#sql_button", newSQL);
+    });
+</script>
 {% endblock %}

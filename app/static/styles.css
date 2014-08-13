@@ -1,3 +1,18 @@
+#navbar {
+    position: fixed;
+    height: 50 px;
+    width: 100%;
+    background-color: black;
+}
+
+.sql-button {
+    height: 50px;
+    width: 150px;
+    background-color: #b8e356;
+}
+
 .profile-header {
     min-height: 260px;
     margin-left: 280px;
+}
+
